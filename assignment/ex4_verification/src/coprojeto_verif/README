@@ -1,0 +1,81 @@
+###############################################################################
+#                       Ambiente de Verificação                               #
+###############################################################################
+
+1 - Pastas
+   .
+   ├── design            // Inclui os arquivos dos DUT
+   ├── ULA.odt           // Documento de referência para a ULA
+   ├── modelo_referencia // Inclui os arquivos do Modelo de Referencia
+   └── verificacao       // Possui os arquivos de top e makefile
+       ├── components    // Adiciona todos os componentes do testbench exeto test
+       ├── results       // Local onde são salvos os logs dos testes
+       └── tests         // Local onde é adicinado os aqurivos de teste
+
+2 - Compilando 
+  2.1 - Variaveis de ambiente
+      É preciso definir uma variavel de ambiente para o local de instalção do
+      SystemC
+         > export SYSTEMC_HOME=<your systemc path>
+	 ou
+	 > setenv SYSTEMC_HOME <your systemc path>
+
+   2.2 - Compilar sem forma de onda
+       Vá para a raiz da pasta de verificacao.
+         > cd verificacao
+       
+       Execute o comando make
+         > make
+       
+       Se não ouver erros, execute o comando:
+         > ./run_verification
+
+   2.3 - Compilar com forma de onda
+       Vá para a raiz da pasta de verificacao.
+         > cd verificacao
+       
+       Execute o comando make
+         > make SET_WAVEFORM=1
+
+       Se não ouver erros, execute o comando:
+         > ./run_verification
+
+3 - Testes
+  3.1 - Rodando um teste
+      Para rodar um teste basta rodar:
+        > ./run_verification -t <NOME DO TESTE>
+
+      Os testes existentes estão na pasta verificacao/tests. Os testes possuem
+      o mesmo nome que o arquivo .h.
+
+  3.2 - Configurando o run_verification
+      É possivel configurar o run_verification da seguinte forma
+        > ./run_verification <opções>
+        ---------------------------------|----------------------------------------
+        opções                           | out_data
+        ---------------------------------|----------------------------------------
+	  --testname, -t  <nome do test> | seleciona o nome do test 
+	  --result_path, -r  <pasta>     | modifica a pasta onde são salvos os 
+	                                 | logs (default: verificacao/results)
+	  --seed , -s <int>		 | Semente para os testes randomicos
+	  --verbosity, -v  <HIGH, MEDIUM,| Nivel de informação a ser mostrada no
+	                    LOW >	 | terminal (default: MEDIUM)
+	  --quiet, -q                    | Nada é mostrado no terminal
+	  -n <int>                       | Numero de interações do teste 
+        ---------------------------------|----------------------------------------
+      Exemplos:
+        Executando o teste ula_test_random com 1000 interações 
+	  > ./run_verification -t ula_test_random -n 1000
+	  ou
+	  > ./run_verification --testname ula_test_random -n 1000
+
+        Executando o teste ula_test_random com 1000 interações e com seed 2
+	  > ./run_verification --testname ula_test_random -n 1000 --seed 2
+	  ou 
+	  > ./run_verification -t ula_test_random -n 1000 --seed 2
+	  ou
+	  > ./run_verification -t ula_test_random -n 1000 -s 2
+  
+  3.2 - Limpar ambiente
+      Rode o comando:
+        > make clean

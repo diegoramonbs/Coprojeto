@@ -1,0 +1,16 @@
+		SC VERIFICATION
+		Wed Nov  2 10:26:00 2016
+
+INFO@0 s: [ula_test_op2] Constructor
+INFO@0 s: [ula_test_op2] Start Reset Phase
+INFO@1011 ns: [ula_test_op2]                                           
+INFO@1011 ns: [ula_test_op2] ########    #######     ######     ###### 
+INFO@1011 ns: [ula_test_op2] ##     ##  ##     ##  ##     ##  ##     ##
+INFO@1011 ns: [ula_test_op2] ##     ##  ##     ##  ##         ##       
+INFO@1011 ns: [ula_test_op2] ########   #########    ######     ###### 
+INFO@1011 ns: [ula_test_op2] ##         ##     ##         ##         ##
+INFO@1011 ns: [ula_test_op2] ##         ##     ##  ##     ##  ##     ##
+INFO@1011 ns: [ula_test_op2] ##         ##     ##    ######     ###### 
+INFO@1011 ns: [ula_test_op2]                                           
+INFO@1011 ns: [ula_test_op2] Simulation completed without errors!
+INFO@1011 ns: [ula_test_op2] Start Finish Phase
